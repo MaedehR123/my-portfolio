@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="پورتفولیو حرفه‌ای آیدا رضائی - توسعه‌دهنده فرانت‌اند و طراح رابط کاربری با تخصص در React و طراحی وب مدرن">
+    <meta name="keywords" content="پورتفولیو, توسعه وب, فرانت‌اند, React, طراحی رابط کاربری, برنامه‌نویسی, آیدا رضائی">
+    <meta name="author" content="آیدا رضائی">
+    <meta property="og:title" content="پورتفولیو آیدا رضائی | توسعه‌دهنده فرانت‌اند">
+    <meta property="og:description" content="پورتفولیو حرفه‌ای آیدا رضائی - توسعه‌دهنده فرانت‌اند و طراح رابط کاربری">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com">
+    <meta property="og:image" content="https://yourportfolio.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="canonical" href="https://yourportfolio.com">
+    <title>پورتفولیو آیدا رضائی | توسعه‌دهنده فرانت‌اند و طراح UI/UX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                    },
+                    fontFamily: {
+                        'sans': ['Vazirmatn', 'ui-sans-serif', 'system-ui'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+        }
+        
+        .rtl {
+            direction: rtl;
+        }
+        
+        .ltr {
+            direction: ltr;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+          background-image: linear-gradient(135deg, #4e46e5ed 5%, #3b82f6cc 50%, #10b981cc 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .language-switcher {
+            transition: all 0.3s ease;
+        }
+        
+        .language-switcher:hover {
+            transform: scale(1.1);
+        }
+        
+        .hero-overlay {
+             background: linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(16, 185, 129, 0.8) 100%);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+        }
+        
+        /* Animation classes */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 1s ease-out forwards;
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 1.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 1.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 1.6s;
+        }
+
+        .duration-2000 {
+             transition-duration: 2000ms !important;
+            }
+
+
+
+.animate-from-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animate-from-top {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.animate-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
+
+
+
+
+/* حالت اولیه عکس */
+#hero-image {
+  opacity: 0;
+  transform: translateY(-60px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* حالت فعال (وقتی وارد viewport شد) */
+#hero-image.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* حالت اولیه متن */
+#hero-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* حالت فعال متن */
+#hero-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+    </style>
+</head>
+<body class="bg-light text-dark rtl">
+    <!-- Language Switcher -->
+    <div class="fixed top-4 left-4 z-50">
+        <button id="language-switcher" class="language-switcher bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-shadow">
+            <span id="current-language" class="font-bold text-primary">فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 right-0 left-0 bg-white bg-opacity-90 shadow-sm z-40 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold gradient-text" id="logo">پورتفولیو آیدا رضائی</a>
+                
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#home" class="nav-link active-nav text-primary font-medium">خانه</a>
+                    <a href="#about" class="nav-link font-medium">درباره من</a>
+                    <a href="#projects" class="nav-link font-medium">پروژه‌ها</a>
+                    <a href="#contact" class="nav-link font-medium">تماس</a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-dark hover:text-primary transition-colors">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-6 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link active-nav text-primary font-medium">خانه</a>
+                <a href="#about" class="nav-link font-medium">درباره من</a>
+                <a href="#projects" class="nav-link font-medium">پروژه‌ها</a>
+                <a href="#contact" class="nav-link font-medium">تماس</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+ <section id="home" class="min-h-screen flex items-center justify-center bg-blue-100 px-6 py-20 relative">
+  <div class="container mx-auto flex flex-col md:flex-row-reverse items-center justify-center gap-40 relative mb-40">
+
+    <!-- محتوا -->
+<div id="hero-image" 
+     class="group w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-xl">
+  <img src="7A932B75-6DA9-42B3-902C-B2E049BF75FB.jpg" alt="آیدا رضائی"  
+       class="w-full h-full object-cover scale-125 group-hover:scale-135 transition-all duration-500 object-top">
+</div>
+
+
+
+    <div id="hero-text" class="text-center md:text-right max-w-xl">
+      <h1 id="hero-title" class="text-3xl md:text-5xl font-bold text-dark mb-4">
+        سلام، من <span class="gradient-text">آیدا رضائی</span> هستم
+      </h1>
+
+      <p id="hero-subtitle" class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+        توسعه‌دهنده فرانت‌اند و طراح رابط کاربری با تخصص در React و طراحی وب مدرن.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+        <a href="#projects" class="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition duration-300 shadow-md hover:shadow-xl">
+          مشاهده پروژه‌ها
+        </a>
+        <a href="#contact" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full font-medium transition duration-300 shadow-md hover:shadow-xl">
+          تماس با من
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div class="absolute bottom-5  md:bottom-3 left-0 right-0 flex justify-center animate-float">
+      <a href="#about" class="text- text-3xl hover:text-primary transition-colors">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+</section>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const image = document.getElementById('hero-image');
+  const text = document.getElementById('hero-text');
+
+  // تعریف observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        // وقتی بخش هرو وارد ویوپورت شد
+        image.classList.add('active');
+        text.classList.add('active');
+      } else {
+        // وقتی از ویوپورت خارج شد، انیمیشن برمی‌گرده به حالت اول (اختیاری)
+        image.classList.remove('active');
+        text.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.30 // وقتی 30% از بخش دیده شد، اجرا کن
+  });
+
+  const heroSection = document.getElementById('home');
+  observer.observe(heroSection);
+});
+
+</script>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fade-in" id="about-title">درباره من</h2>
+                <div class="w-20 h-1 bg-primary mx-auto animate-fade-in"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center animate-from-top" id="about-image">
+    <div class="relative w-64 h-64 rounded-full overflow-hidden border-4 border-primary shadow-xl hover:shadow-2xl transition-shadow">
+        <img src="7A932B75-6DA9-42B3-902C-B2E049BF75FB.jpg" 
+             alt="آیدا رضائی - توسعه‌دهنده فرانت‌اند" 
+             class="w-full h-full object-cover hover:scale-115 transition-transform duration-500"
+             style="object-position: 10% 5%; transform: scale(1.3) translateX(-5%);">
+
+        <div class="absolute inset-0 bg-primary opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+    </div>
+</div>
+                
+                <div class="md:w-2/3 md:pr-10 animate-from-bottom" id="about-text-container">
+                    <h3 class="text-2xl font-bold mb-6 animate-fade-in animate-delay-1" id="about-subtitle">من کی هستم؟</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed animate-fade-in animate-delay-1" id="about-text">
+                        من آیدا رضائی، توسعه‌دهنده‌ی فرانت‌اند ۲۲ ساله با تخصص در React هستم. طراحی و توسعه رابط‌های کاربری مدرن، واکنش‌گرا و کاربرمحور برای وب‌سایت‌ها، زمینه‌ی اصلی فعالیت من است. با اشتیاق به حل چالش‌های فنی و خلق تجربه‌های تعاملی، تلاش می‌کنم ایده‌ها را به رابط‌هایی زیبا، کاربردی و بهینه تبدیل کنم که هم نیاز کاربر را برآورده کنند و هم برای کسب‌وکار ارزش‌آفرین باشند.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="animate-fade-in animate-delay-2">
+                            <div class="flex items-center mb-2">
+                                <span class="font-bold ml-2" id="skill-1">توسعه فرانت‌اند:</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="animate-fade-in animate-delay-2">
+                            <div class="flex items-center mb-2">
+                                <span class="font-bold ml-2" id="skill-2">CSS:</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-secondary h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="animate-fade-in animate-delay-3">
+                            <div class="flex items-center mb-2">
+                                <span class="font-bold ml-2" id="skill-3">طراحی UI/UX:</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="animate-fade-in animate-delay-3">
+                            <div class="flex items-center mb-2">
+                                <span class="font-bold ml-2" id="skill-4">HTML:</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-secondary h-2.5 rounded-full skill-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in animate-delay-3">
+                        <a href="#" class="inline-block bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl">
+                            دانلود رزومه
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fade-in" id="projects-title">پروژه‌های من</h2>
+                <div class="w-20 h-1 bg-primary mx-auto animate-fade-in"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4 animate-fade-in animate-delay-1">
+                    نمونه‌کارهای منتخب من که با آخرین تکنولوژی‌های روز طراحی و پیاده‌سازی شده‌اند
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-fade-in animate-delay-1">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="پروژه ها/pomodoro.png" 
+                             alt="تایمر پومودورو" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" id="project-1-title">تایمر پومودورو</h3>
+                        <p class="text-gray-600 mb-4" id="project-1-desc">
+                            تایمر پومودورو روشی مؤثر برای مدیریت زمان است که کار را به بازه‌های ۲۵ دقیقه‌ای با وقفه‌های کوتاه تقسیم می‌کند.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="https://psychology-test-qqhv.vercel.app" 
+                           class="text-primary font-medium hover:underline flex items-center"
+                           aria-label="مشاهده پروژه تایمر پومودورو">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-fade-in animate-delay-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="پروژه ها/ravanshenasi.png" 
+                             alt="تست روانشناسی خودشناسی" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" id="project-2-title">تست روانشناسی خودشناسی</h3>
+                        <p class="text-gray-600 mb-4" id="project-2-desc">
+                            با پاسخ به تنها ۸ سوال، خودت را بهتر بشناس و مسیر رشدت را شفاف‌تر کن.
+                        </p>
+                       <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="https://psychology-test-cyan.vercel.app" 
+                           class="text-primary font-medium hover:underline flex items-center"
+                           aria-label="مشاهده پروژه تست روانشناسی خودشناسی">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-fade-in animate-delay-3">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="پروژه ها/checkList.png" 
+                             alt="چک لیست برای سفر" 
+                             class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" id="project-3-title"> چک لیست مسافرت</h3>
+                        <p class="text-gray-600 mb-4" id="project-3-desc">
+                            این اپ مناسب چک کردن وسایل برای قبل از سفر هست و هم انلاین و هم افلاین کار میکند
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">TailwindCSS</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <a href="https://check-list-lime-pi.vercel.app/
+" 
+                           class="text-primary font-medium hover:underline flex items-center"
+                           aria-label="مشاهده پروژه چک لیست">
+                            مشاهده جزئیات
+                            <i class="fas fa-arrow-left mr-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-fade-in animate-delay-3">
+                <a href="#" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl">
+                    مشاهده همه پروژه‌ها
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fade-in" id="contact-title">تماس با من</h2>
+                <div class="w-20 h-1 bg-primary mx-auto animate-fade-in"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4 animate-fade-in animate-delay-1">
+                    برای همکاری یا دریافت مشاوره رایگان در زمینه طراحی و توسعه وب، فرم زیر را پر کنید
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h3 class="text-2xl font-bold mb-6 animate-fade-in animate-delay-1" id="contact-subtitle">اطلاعات تماس</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed animate-fade-in animate-delay-1" id="contact-text">
+                        اگر پروژه‌ای دارید یا می‌خواهید با من همکاری کنید، لطفاً از طریق فرم تماس پیام بگذارید یا مستقیماً با من تماس بگیرید. من معمولاً در کمتر از 24 ساعت پاسخ می‌دهم.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start animate-fade-in animate-delay-2">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-full text-primary mr-4 social-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1" id="address-title">آدرس</h4>
+                                <p class="text-gray-600" id="address">مشهد /تهران</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start animate-fade-in animate-delay-2">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-full text-primary mr-4 social-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <!-- <h4 class="font-bold mb-1" id="email-title">ایمیل</h4> -->
+                                <!-- <p class="text-gray-600" id="email">aida.rezaei@example.com</p> -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start animate-fade-in animate-delay-2">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-full text-primary mr-4 social-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                 <h4 class="font-bold mb-1" id="phone-title">تلفن</h4>
+                                 <p class="text-gray-600" id="phone" dir="ltr">+98 9384124311</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4 space-x-reverse">
+                        <a href="https://t.me/siteup_web" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full social-icon" aria-label="تلگرام" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maedeh-rezaei-079570329" class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full social-icon" aria-label="لینکدین" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/siteup_web/profilecard" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full social-icon" aria-label="اینستاگرام" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 animate-fade-in animate-delay-3">
+                    <form class="space-y-6" id="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium" id="name-label">نام شما</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input" placeholder="نام و نام خانوادگی" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium" id="email-label">آدرس ایمیل</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input" placeholder="example@domain.com" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium" id="subject-label">موضوع</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input" placeholder="موضوع پیام" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-medium" id="message-label">پیام شما</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input" placeholder="متن پیام..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-600 text-white px-6 py-4 rounded-lg font-medium transition duration-300 shadow-lg hover:shadow-xl">
+                            ارسال پیام
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text" id="footer-logo">پورتفولیو آیدا رضائی</a>
+                    <p class="mt-2 text-gray-400" id="footer-text">طراحی و توسعه وبسایت‌های مدرن و حرفه‌ای با بهترین استانداردها</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 space-x-reverse mb-4">
+                        <a href="https://t.me/siteup_web" class="hover:text-primary transition duration-300 social-icon" aria-label="تلگرام" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maedeh-rezaei-079570329" class="hover:text-primary transition duration-300 social-icon" aria-label="لینکدین" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/siteup_web/profilecard" class="hover:text-primary transition duration-300 social-icon" aria-label="اینستاگرام" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm" id="copyright">© 2023 تمام حقوق برای آیدا رضائی محفوظ است.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        const languageSwitcher = document.getElementById('language-switcher');
+        const currentLanguage = document.getElementById('current-language');
+        let isPersian = true;
+        
+        // All elements that need translation
+        const translatableElements = {
+            'logo': { fa: 'پورتفولیو آیدا رضائی', en: 'Aida Rezaei Portfolio' },
+            'hero-title': { fa: 'سلام، من <span class="gradient-text">آیدا رضائی</span> هستم', en: 'Hi, I\'m <span class="gradient-text">Aida Rezaei</span>' },
+            'hero-subtitle': { fa: 'توسعه‌دهنده فرانت‌اند و طراح رابط کاربری با تخصص در React و طراحی وب مدرن', en: 'Frontend Developer and UI Designer specializing in React and modern web design' },
+            'about-title': { fa: 'درباره من', en: 'About Me' },
+            'about-subtitle': { fa: 'من کی هستم؟', en: 'Who am I?' },
+            'about-text': { 
+                fa: 'من آیدا رضائی، توسعه‌دهنده‌ی فرانت‌اند ۲۲ ساله با تخصص در React هستم. طراحی و توسعه رابط‌های کاربری مدرن، واکنش‌گرا و کاربرمحور برای وب‌سایت‌ها، زمینه‌ی اصلی فعالیت من است. با اشتیاق به حل چالش‌های فنی و خلق تجربه‌های تعاملی، تلاش می‌کنم ایده‌ها را به رابط‌هایی زیبا، کاربردی و بهینه تبدیل کنم که هم نیاز کاربر را برآورده کنند و هم برای کسب‌وکار ارزش‌آفرین باشند.',
+                en: 'I\'m Aida Rezaei, a 22-year-old frontend developer specializing in React. Designing and developing modern, responsive, and user-centric interfaces for websites is my main field of activity. With a passion for solving technical challenges and creating interactive experiences, I strive to turn ideas into beautiful, functional, and optimized interfaces that meet user needs and create value for businesses.'
+            },
+            'skill-1': { fa: 'توسعه فرانت‌اند:', en: 'Frontend Development:' },
+            'skill-2': { fa: 'توسعه بک‌اند:', en: 'Backend Development:' },
+            'skill-3': { fa: 'طراحی UI/UX:', en: 'UI/UX Design:' },
+            'skill-4': { fa: 'پایگاه داده:', en: 'Database:' },
+            'projects-title': { fa: 'پروژه‌های من', en: 'My Projects' },
+            'project-1-title': { fa: 'تایمر پومودورو', en: 'Pomodoro Timer' },
+            'project-1-desc': { 
+                fa: 'تایمر پومودورو روشی مؤثر برای مدیریت زمان است که کار را به بازه‌های ۲۵ دقیقه‌ای با وقفه‌های کوتاه تقسیم می‌کند.',
+                en: 'The Pomodoro Timer is an effective time management method that divides work into 25-minute intervals with short breaks.'
+            },
+            'project-2-title': { fa: 'تست روانشناسی خودشناسی', en: 'Self-Knowledge Psychology Test' },
+            'project-2-desc': { 
+                fa: 'با پاسخ به تنها ۸ سوال، خودت را بهتر بشناس و مسیر رشدت را شفاف‌تر کن.',
+                en: 'Answer just 8 questions to know yourself better and clarify your growth path.'
+            },
+            'project-3-title': { fa: 'اپلیکیشن موبایل', en: 'Mobile Application' },
+            'project-3-desc': { 
+                fa: 'اپلیکیشن موبایل برای رزرو آنلاین خدمات با قابلیت موقعیت‌یابی و پرداخت اینترنتی',
+                en: 'Mobile application for online service booking with location feature and online payment'
+            },
+            'contact-title': { fa: 'تماس با من', en: 'Contact Me' },
+            'contact-subtitle': { fa: 'اطلاعات تماس', en: 'Contact Information' },
+            'contact-text': { 
+                fa: 'اگر پروژه‌ای دارید یا می‌خواهید با من همکاری کنید، لطفاً از طریق فرم تماس پیام بگذارید یا مستقیماً با من تماس بگیرید. من معمولاً در کمتر از 24 ساعت پاسخ می‌دهم.',
+                en: 'If you have a project or want to collaborate with me, please leave a message through the contact form or contact me directly. I usually respond within 24 hours.'
+            },
+            'address-title': { fa: 'آدرس', en: 'Address' },
+            'address': { fa: 'تهران، خیابان آزادی، کوچه شهید فلانی، پلاک 12', en: 'Tehran, Azadi Street, Alley 12, No. 12' },
+            'email-title': { fa: 'ایمیل', en: 'Email' },
+            'email': { fa: 'aida.rezaei@example.com', en: 'aida.rezaei@example.com' },
+            'phone-title': { fa: 'تلفن', en: 'Phone' },
+            'phone': { fa: '+98 912 345 6789', en: '+98 912 345 6789' },
+            'name-label': { fa: 'نام شما', en: 'Your Name' },
+            'email-label': { fa: 'آدرس ایمیل', en: 'Email Address' },
+            'subject-label': { fa: 'موضوع', en: 'Subject' },
+            'message-label': { fa: 'پیام شما', en: 'Your Message' },
+            'footer-logo': { fa: 'پورتفولیو آیدا رضائی', en: 'Aida Rezaei Portfolio' },
+            'footer-text': { 
+                fa: 'طراحی و توسعه وبسایت‌های مدرن و حرفه‌ای با بهترین استانداردها', 
+                en: 'Design and development of modern and professional websites with the best standards'
+            },
+            'copyright': { 
+                fa: '© 2023 تمام حقوق برای آیدا رضائی محفوظ است.', 
+                en: '© 2023 All Rights Reserved for Aida Rezaei.'
+            }
+        };
+
+        languageSwitcher.addEventListener('click', () => {
+            isPersian = !isPersian;
+            
+            // Switch language text
+            currentLanguage.textContent = isPersian ? 'فا' : 'En';
+            
+            // Change direction of the document
+            document.documentElement.dir = isPersian ? 'rtl' : 'ltr';
+            
+            // Update all translatable elements
+            for (const [id, translations] of Object.entries(translatableElements)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = isPersian ? translations.fa : translations.en;
+                }
+            }
+            
+            // Update button texts
+            const buttons = document.querySelectorAll('button, a');
+            buttons.forEach(button => {
+                if (button.textContent.includes('مشاهده پروژه‌ها') || button.textContent.includes('View Projects')) {
+                    button.textContent = isPersian ? 'مشاهده پروژه‌ها' : 'View Projects';
+                } else if (button.textContent.includes('تماس با من') || button.textContent.includes('Contact Me')) {
+                    button.textContent = isPersian ? 'تماس با من' : 'Contact Me';
+                } else if (button.textContent.includes('دانلود رزومه') || button.textContent.includes('Download CV')) {
+                    button.textContent = isPersian ? 'دانلود رزومه' : 'Download CV';
+                } else if (button.textContent.includes('مشاهده همه پروژه‌ها') || button.textContent.includes('View All Projects')) {
+                    button.textContent = isPersian ? 'مشاهده همه پروژه‌ها' : 'View All Projects';
+                } else if (button.textContent.includes('ارسال پیام') || button.textContent.includes('Send Message')) {
+                    button.textContent = isPersian ? 'ارسال پیام' : 'Send Message';
+                }
+            });
+            
+            // Update placeholders
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input.placeholder.includes('نام و نام خانوادگی') || input.placeholder.includes('Full Name')) {
+                    input.placeholder = isPersian ? 'نام و نام خانوادگی' : 'Full Name';
+                } else if (input.placeholder.includes('example@domain.com')) {
+                    input.placeholder = 'example@domain.com';
+                } else if (input.placeholder.includes('موضوع پیام') || input.placeholder.includes('Message Subject')) {
+                    input.placeholder = isPersian ? 'موضوع پیام' : 'Message Subject';
+                } else if (input.placeholder.includes('متن پیام...') || input.placeholder.includes('Your Message...')) {
+                    input.placeholder = isPersian ? 'متن پیام...' : 'Your Message...';
+                }
+            });
+            
+            // Update navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.textContent.includes('خانه') || link.textContent.includes('Home')) {
+                    link.textContent = isPersian ? 'خانه' : 'Home';
+                } else if (link.textContent.includes('درباره من') || link.textContent.includes('About')) {
+                    link.textContent = isPersian ? 'درباره من' : 'About';
+                } else if (link.textContent.includes('پروژه‌ها') || link.textContent.includes('Projects')) {
+                    link.textContent = isPersian ? 'پروژه‌ها' : 'Projects';
+                } else if (link.textContent.includes('تماس') || link.textContent.includes('Contact')) {
+                    link.textContent = isPersian ? 'تماس' : 'Contact';
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ? 
+                '<i class="fas fa-bars text-2xl"></i>' : 
+                '<i class="fas fa-times text-2xl"></i>';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            });
+        });
+        
+        // Add active class to current section in navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav', 'text-primary');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav', 'text-primary');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+            
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const elementPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    bar.style.width = bar.style.width;
+                }
+            });
+
+          window.addEventListener('scroll', () => {
+    const aboutSection = document.getElementById('about');
+
+    if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // حداقل درصد دیده شدن از بخش (مثلاً 50%)
+        const visibleThreshold = 0.5;
+
+        const elementHeight = rect.height;
+        const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+        const visiblePercent = visibleHeight / elementHeight;
+
+        const aboutImage = document.getElementById('about-image');
+        const aboutText = document.getElementById('about-text-container');
+
+        if (visiblePercent >= visibleThreshold) {
+            if(aboutImage) aboutImage.classList.add('animate-active');
+            if(aboutText) aboutText.classList.add('animate-active');
+        } else {
+            if(aboutImage) aboutImage.classList.remove('animate-active');
+            if(aboutText) aboutText.classList.remove('animate-active');
+        }
+    }
+});
+
+
+        };
+        
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the data to a server
+                // For now, we'll just show an alert
+                alert(isPersian ? 
+                    `پیام شما با موفقیت ارسال شد!\nنام: ${name}\nایمیل: ${email}\nموضوع: ${subject}\nپیام: ${message}` : 
+                    `Your message has been sent successfully!\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+        
+        // Preload images for better performance
+        function preloadImages() {
+            const images = [
+                'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                '7A932B75-6DA9-42B3-902C-B2E049BF75FB.jpg',
+                'پروژه ها/pomodoro.png',
+                'پروژه ها/ravanshenasi.png',
+                'https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1636&auto=format&fit=crop'
+            ];
+            
+            images.forEach(image => {
+                const img = new Image();
+                img.src = image;
+            });
+        }
+        
+        // Call preload function when page loads
+        window.addEventListener('load', preloadImages);
+    </script>
+</body>
+</html>
